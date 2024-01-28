@@ -1,0 +1,43 @@
+
+* go unique id module
+
+- short(ish)
+- url safe
+- nonsortable
+- random looking
+- no obvious pattern
+- default (lowercase) config does not include easily confused {l,o,0,1}
+- will automagically increase in length if needed to support higher rates
+
+* Example
+#+begin_src go
+import "github.com/jaw0/unique-id"
+
+uid := id.Unique()
+
+// or
+
+gen := id.NewGenerator()
+uid := gen.Unique()
+
+// or
+
+gen := id.NewGenerator( id.WithLength(30), id.WithUpperCase() )
+uid := gen.Unique()
+
+#+end_src
+
+* Sample IDs
+
+** default params
+- a367ey88sxdfwyb45x4p
+- zgy3yrpwi5t5cxwwvjhj
+
+** WithUpperCase()
+- hh30PYUpTBeSdnSC
+- 5E4igm-0JWKraVL_
+
+** WithLength(30)
+- 6pixwwahj44egnwdmlr7cswhfrakvx
+- urbnmac6ucguavgh3agffopkhvwgdt
+
